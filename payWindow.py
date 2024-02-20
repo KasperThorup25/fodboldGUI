@@ -87,6 +87,7 @@ class payWindowClass:
             messagebox.showerror(parent=self.payWindow, title="Manglende Deltager", message="Prøv igen.\n Husk at vælge en deltager!")
             return
 
+        #  Tjek om der er inbetalt for meget
         if self.master.fodboldtur[self.selected_user] > self.master.price_pr_person:
 
             messagebox.showerror(parent=self.payWindow, title="For høj inbetaling!", message="Prøv igen.\nDu har indbetalt mere end nødvendigt!")
@@ -96,6 +97,9 @@ class payWindowClass:
 
 
         self.master.save()
+
+        # TODO: Informere bruger om at betaling er gemt
+
         self.master.total = sum(self.master.fodboldtur.values())
 
         self.master.progressLabelText.set(f"Indsamlet: {self.master.total} af {self.master.target} kroner:")

@@ -12,7 +12,7 @@ from worstWindow import worstWindowClass
 class mainWindow:
     def __init__(self):
         # global border width
-        self.borderwidth = 0
+        self.borderwidth = 2
 
         # load fil
         self.filename = 'betalinger.pk'
@@ -46,12 +46,11 @@ class mainWindow:
         contentFrame.pack_propagate(False)
         contentFrame.pack(padx=10, pady=10, side=RIGHT)
 
-
-
-
         # Overskrift
         velkomst = Label(contentFrame, text="Fodboldtur Prisoversigt", font = ("Arial", 40))
         velkomst.pack(pady=30)
+
+        # TODO: Cirkel diagram
 
         # Progress bar widget
         self.progressLabelText = StringVar()
@@ -69,7 +68,7 @@ class mainWindow:
 
 
 
-        # Buttons
+        #  Buttons
         listButton = Button(menuFrame,text ="Deltager overblik", width = menuFrame.winfo_screenwidth(), command = lambda: listWindowClass(self))
         listButton.pack(pady = 5) # textwrap
 
@@ -79,6 +78,8 @@ class mainWindow:
 
         bottom3Button = Button(menuFrame,text ="Mindste betalere", width = menuFrame.winfo_screenwidth(), command = lambda: worstWindowClass(self))
         bottom3Button.pack(pady = 5)
+
+        # TODO: Developer mode switch - synlig frames
 
         # infinite loop
         mainloop()

@@ -31,7 +31,7 @@ class listWindowClass:
             for key in self.sorted_fodboldtur.keys():
                 Label(self.deltagerListeFrame, text=key).pack(side=TOP, anchor='w')
 
-            #frame til deltagers indbetalte beløb
+            # frame til deltagers indbetalte beløb
             self.beløbListeFrame = Frame(self.listFrame, borderwidth=self.master.borderwidth, relief=GROOVE)
             self.beløbListeFrame.pack(side=RIGHT)
 
@@ -53,7 +53,7 @@ class listWindowClass:
         self.ny_deltager_frame.pack_propagate(False)
         self.ny_deltager_frame.pack(side=BOTTOM, padx=10, pady=10)
 
-        # ny deltager knap
+        # ny deltager knap TODO: gør knappen funktionel
         self.ny_deltager_button = Button(self.ny_deltager_frame, text="Tilføj deltager")
         self.ny_deltager_button.pack(side=RIGHT)
 
@@ -76,8 +76,10 @@ class listWindowClass:
             elif self.selected_user == choices[3]:
                 self.sorted_fodboldtur = dict(sorted(self.master.fodboldtur.items(), key=operator.itemgetter(1), reverse=True))
 
+            #  Slet gamle deltager liste
             self.listFrame.destroy()
 
+            #  Lav ny opdaterede liste
             list_deltagere()
 
 
